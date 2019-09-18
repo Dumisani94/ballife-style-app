@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject, forwardRef } from '@angular/core';
 import { UserService } from '../data/user.service';
 import { DatePipe } from '@angular/common';
+import { NotificationService } from '../data/notification.service';
 
 @Component({
   selector: 'app-daily-task',
@@ -14,8 +15,8 @@ export class DailyTaskComponent implements OnInit {
   formatedDate;
 
 
-  constructor(private userService: UserService, private datePipe: DatePipe) { }
-
+  constructor(@Inject(forwardRef(() => UserService)) public userService: UserService, @Inject(forwardRef(() => NotificationService)) public notificationService: NotificationService) {
+  }
   ngOnInit() {
 
     this.userService.getDailyTasks().subscribe(data => {
@@ -24,8 +25,6 @@ export class DailyTaskComponent implements OnInit {
 
     });
 
-    this.formatedDate = this.datePipe.transform(this.currentDate, 'HH:mm:ss');
-    console.log(this.formatedDate);
   }
 
 }

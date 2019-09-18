@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, Inject, forwardRef } from '@angular/core';
 import { UserService } from '../data/user.service';
 import { DatePipe } from '@angular/common';
 import { NotificationService } from '../data/notification.service';
@@ -27,10 +27,9 @@ export class HomeComponent implements OnInit {
   isLoaded = false;
 
 
-  constructor(private userService: UserService, private notificationService: NotificationService) {
-
-
+  constructor(@Inject(forwardRef(() => UserService)) public userService: UserService, @Inject(forwardRef(() => NotificationService)) public notificationService: NotificationService) {
   }
+
 
   ngOnInit() {
     localStorage.clear;

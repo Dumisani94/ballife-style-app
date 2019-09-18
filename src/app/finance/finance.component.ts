@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject, forwardRef } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
 import { UserService } from '../data/user.service';
 import { DatePipe } from '@angular/common';
@@ -13,7 +13,7 @@ export class FinanceComponent implements OnInit {
   budgetDetails: FormGroup;
   isAdded = false;
 
-  constructor(private formBuilder: FormBuilder, private taskService : UserService,private datePipe: DatePipe) { }
+  constructor(private formBuilder, @Inject(forwardRef(() => UserService)) public taskService: UserService, @Inject(forwardRef(() => DatePipe)) public datePipe: DatePipe) {}
 
   ngOnInit() {
     this.budgetDetails = this.formBuilder.group({
