@@ -1,7 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class UserService {
 
   // private baseURL = 'https://social-auth-api-v1.herokuapp.com/auth';
@@ -18,6 +20,8 @@ export class UserService {
     });
     return data;
   }
+
+  
 
   getDashboardInfo() {
     return this.httpClient.get<any>(this.baseURL + '/dashboard');
