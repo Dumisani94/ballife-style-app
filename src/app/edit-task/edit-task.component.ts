@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, forwardRef, Inject } from '@angular/core';
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 import { UserService } from '../data/user.service';
 import { DatePipe } from '@angular/common';
@@ -18,8 +18,8 @@ export class EditTaskComponent implements OnInit {
   isAdded = false;
   selectedTask : any = {};
 
-  constructor(private formBuilder: FormBuilder, private taskService : UserService, private datePipe: DatePipe) { }
-
+  constructor(private formBuilder, @Inject(forwardRef(() => UserService)) public taskService: UserService, @Inject(forwardRef(() => DatePipe)) public datePipe: DatePipe) {
+  }
   ngOnInit() {
 
     let task = localStorage.getItem('selectedTask');
