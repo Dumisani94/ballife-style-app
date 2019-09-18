@@ -86,7 +86,10 @@
             "styles": [
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": [
+              "src/js/jquery-3.4.1.js",
+              "src/js/bootstrap.min.js"
+            ]
           }
         },
         "lint": {
