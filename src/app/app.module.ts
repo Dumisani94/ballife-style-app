@@ -13,6 +13,8 @@ import { DailyTaskComponent } from './daily-task/daily-task.component';
 import { ViewTaskComponent } from './view-task/view-task.component';
 import { FinanceComponent } from './finance/finance.component';
 import { EditTaskComponent } from './edit-task/edit-task.component';
+import { UserService } from './data/user.service';
+import { NotificationService } from './data/notification.service';
 
 
 @NgModule({
@@ -32,7 +34,7 @@ import { EditTaskComponent } from './edit-task/edit-task.component';
     HttpClientModule ,
     ReactiveFormsModule
    ],
-  providers: [DatePipe],
+  providers: [DatePipe, UserService,NotificationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
