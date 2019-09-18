@@ -9,9 +9,9 @@ import { DatePipe } from '@angular/common';
 })
 export class DailyTaskComponent implements OnInit {
 
-  private dailTasks : any = [];
-  private currentDate = new Date();
-  private formatedDate;
+   dailTasks : any = [];
+   currentDate = new Date();
+   formatedDate;
 
   
   constructor(private userService : UserService, private datePipe: DatePipe) { }
