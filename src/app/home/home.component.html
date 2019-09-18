@@ -1,0 +1,213 @@
+<br />
+<div class="loader" *ngIf="isLoaded === false">...</div>
+<div id="load">Conectando..</div>
+<div class="container" style="padding-top: 3%;color: white">
+
+  <div *ngIf="isLoaded === true">
+    <div class="wrap">
+      <div class="container-fluid">
+        <div class="side-body">
+          <h4><span style="color: red;">Balance: R {{info.balance}}</span></h4>
+          <div class="row">
+            <div class="col-lg-8 col-sm-12">
+              <div class="row">
+                <div class="col-sm-6">
+                  <div class="panel panel-info">
+                    <div class="panel-heading">
+                      <div class="row">
+                        <div class="col-xs-9">
+                          <div class="huge">
+                            {{info.countMonthlyTasks}}
+                          </div>
+                          <div>
+                            Monthly Tasks
+                          </div>
+                        </div>
+                        <div class="col-xs-3 text-right">
+                          <i class="fa fa-cogs fa-5x"></i>
+                        </div>
+                      </div>
+                    </div><a routerLink="/view-tasks" (click)="navigateToSelectedTasks('MONTHLY_TASKS')">
+                      <div class="panel-footer">
+                        <span class="pull-left">View Details</span> <span class="pull-right"><i
+                            class="fa fa-arrow-circle-right"></i></span>
+                        <div class="clearfix"></div>
+                      </div>
+                    </a>
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="panel panel-default">
+                    <div class="panel-heading">
+                      <div class="row">
+                        <div class="col-xs-9">
+                          <div class="huge">
+                            {{info.countShortTerm}}
+                          </div>
+                          <div>
+                            Short Term Goals
+                          </div>
+                        </div>
+                        <div class="col-xs-3 text-right">
+                          <i class="fa fa-laptop fa-5x"></i>
+                        </div>
+                      </div>
+                    </div><a routerLink="/view-tasks" (click)="navigateToSelectedTasks('SHORT_TERM')">
+                      <div class="panel-footer">
+                        <span class="pull-left">View Details</span> <span class="pull-right"><i
+                            class="fa fa-arrow-circle-right"></i></span>
+                        <div class="clearfix"></div>
+                      </div>
+                    </a>
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="panel panel-success">
+                    <div class="panel-heading">
+                      <div class="row">
+                        <div class="col-xs-9">
+                          <div class="huge">
+                            {{info.countLongTerm}}
+                          </div>
+                          <div>
+                            Long Term Goals
+                          </div>
+                        </div>
+                        <div class="col-xs-3 text-right">
+                          <i class="fa fa-shopping-cart fa-5x"></i>
+                        </div>
+                      </div>
+                    </div><a routerLink="/view-tasks" (click)="navigateToSelectedTasks('LONG_TERM')">
+                      <div class="panel-footer">
+                        <span class="pull-left">View Details</span> <span class="pull-right"><i
+                            class="fa fa-arrow-circle-right"></i></span>
+                        <div class="clearfix"></div>
+                      </div>
+                    </a>
+                  </div>
+                </div>
+                <div class="col-sm-6" *ngIf="info.overSpent > 0">
+                  <div class="panel panel-warning">
+                    <div class="panel-heading">
+                      <div class="row">
+                        <div class="col-xs-9">
+                          <div class="huge">
+                            {{info.overSpent}}
+                          </div>
+                          <div>
+                            Over Due
+                          </div>
+                        </div>
+                        <div class="col-xs-3 text-right">
+                          <i class="fa fa-dollar fa-5x"></i>
+                        </div>
+                      </div>
+                    </div><a routerLink="/view-tasks" (click)="navigateToSelectedTasks('MONTHLY_TASKS')">
+                      <div class="panel-footer">
+                        <span class="pull-left">View Details</span> <span class="pull-right"><i
+                            class="fa fa-arrow-circle-right"></i></span>
+                        <div class="clearfix"></div>
+                      </div>
+                    </a>
+                  </div>
+                </div>
+
+                <div class="col-sm-6">
+                  <div class="panel panel-primary">
+                    <div class="panel-heading">
+                      <div class="row">
+                        <div class="col-xs-9">
+                          <div class="huge">
+                            {{info.monthlyBudget}}
+                          </div>
+                          <div>
+                            Monthly Budget
+                          </div>
+                        </div>
+                        <div class="col-xs-3 text-right">
+                          <i class="fa fa-dollar fa-5x"></i>
+                        </div>
+                      </div>
+                    </div><a routerLink="/view-tasks" (click)="navigateToSelectedTasks('MONTHLY_TASKS')">
+                      <div class="panel-footer">
+                        <span class="pull-left">View Details</span> <span class="pull-right"><i
+                            class="fa fa-arrow-circle-right"></i></span>
+                        <div class="clearfix"></div>
+                      </div>
+                    </a>
+                  </div>
+                </div>
+
+
+                <div class="col-sm-6">
+                  <div class="panel panel-danger">
+                    <div class="panel-heading">
+                      <div class="row">
+                        <div class="col-xs-9">
+                          <div class="huge">
+                            R {{info.totMoneyUsed}}
+                          </div>
+                          <div>
+                            Total Amount Used
+                          </div>
+                        </div>
+                        <div class="col-xs-3 text-right">
+                          <i class="fa fa-dollar fa-5x"></i>
+                        </div>
+                      </div>
+                    </div><a routerLink="/view-tasks" (click)="navigateToSelectedTasks('MONTHLY_TASKS')">
+                      <div class="panel-footer">
+                        <span class="pull-left">View Details</span> <span class="pull-right"><i
+                            class="fa fa-arrow-circle-right"></i></span>
+                        <div class="clearfix"></div>
+                      </div>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-4 col-sm-12">
+              <div class="panel panel-info">
+                <div class="panel-heading">
+                  <i class="fa fa-bell fa-fw"></i> Motivation Panel
+                </div>
+                <div class="panel-body" style="background-color: darkblue;">
+                  {{motivation.content}}
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-sm-8" *ngIf="upComingTasks.length > 0">
+              <div class="panel panel-info">
+                <div class="panel-heading">
+                  <i class="fa fa-line-chart fa-fw"></i> Inprogress
+                </div>
+                <div class="list-group">
+                  <a href="/edit-task" (click)="editTask(task)" class="list-group-item"
+                    *ngFor="let task of upComingTasks;let i = index">{{task.name}} ({{task.description}})<span
+                      class="badge">{{i + 1}}</span></a>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-4" *ngIf="completedTasks.length > 0">
+              <div class="panel panel-success">
+                <div class="panel-heading">
+                  <i class="fa fa-pie-chart fa-fw"></i> Completed
+                </div>
+
+                <div class="list-group">
+                  <a href="/edit-task" (click)="editTask(task)" class="list-group-item"
+                    *ngFor="let task of completedTasks;let i = index">{{task.name}}<span
+                      class="badge">{{i + 1}}</span></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

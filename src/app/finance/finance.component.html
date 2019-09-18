@@ -1,0 +1,81 @@
+<div class="container" style="padding-top: 5%" style="color: white;">
+    <div class="row">
+        <div class="col-xs-12">
+            <h3>Finance</h3>
+            <br>
+            <div class="table-responsive">
+                <table
+                    summary="This table shows how to create responsive tables using Bootstrap's default functionality"
+                    class="table table-bordered table-hover">
+                    <thead>
+                        <tr>
+                            <th>Month</th>
+                            <th>Budget</th>
+                            <th>Over Spent</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let task of dailTasks">
+                            <td>{{task.name}}</td>
+                            <td>{{task.description}}</td>
+                            <td>{{task.startTime}}</td>
+                        </tr>
+                    </tbody>
+
+                </table>
+            </div>
+            <!--end of .table-responsive-->
+
+            <br>
+            <form [formGroup]="budgetDetails" (ngSubmit)="addBudget()">
+
+                <div class="row">
+                    <div class="col-md-2">
+                        <div class="form-group">
+                            <label for="first">Monthly Budget</label>
+                            <input type="number" class="form-control" placeholder="" id="budget" formControlName="budget" >
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="row">
+                    <div class="col-md-6">
+
+                        <div class="form-group">
+                            <label for="startDate">Start Date</label>
+                            <input id="textinput" name="textinput" type="date" placeholder="placeholder"
+                                class="form-control input-md" formControlName="startDate">
+                        </div>
+                    </div>
+                    <!--  col-md-6   -->
+
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="endDate">End Date</label>
+                            <input id="textinput" name="textinput" type="date" placeholder="placeholder"
+                                class="form-control input-md" formControlName="endDate">
+                        </div>
+
+                    </div>
+                    <!--  col-md-6   -->
+                </div>
+
+                <div class="row">
+                    <div class="col-md-2">
+                        <div class="form-group">
+                            <input type="button" (click) = "addBudget()" value="Submit Budget" class="btn btn-primary" placeholder=""
+                                id="budget">
+                        </div>
+                    </div>
+                </div>
+            </form>
+
+            <br>
+            <div class="alert alert-success" role="alert" *ngIf="isAdded">
+               Task has been successfully added
+            </div>
+
+        </div>
+    </div>
+</div>

@@ -1,0 +1,133 @@
+<br />
+
+<div class="container" style="padding-top: 5%;color: white;">
+    <form [formGroup]="taskDetails" (ngSubmit)="saveTask()">
+        <h3>Task Details</h3>
+        <br>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="first">Task Name</label>
+                    <input type="text" class="form-control" formControlName="taskName" placeholder="" id="first">
+                </div>
+            </div>
+            <!--  col-md-6   -->
+
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="last">Task Description</label>
+                    <input type="text" class="form-control" formControlName="taskDesciption" placeholder="" id="last">
+                </div>
+            </div>
+            <!--  col-md-6   -->
+        </div>
+
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="company">Cost</label>
+                    <input type="number" class="form-control" formControlName="cost" placeholder="" id="company">
+                </div>
+
+
+            </div>
+            <!--  col-md-6   -->
+
+            <div class="col-md-6">
+
+                <div class="form-group">
+                    <label for="phone">Task Type</label>
+                    <select id="selectbasic" name="selectbasic" class="form-control" [(ngModel)]="taskType"
+                        formControlName="taskType">
+                        <option value="MONTHLY_TASKS">Monthly Task</option>
+                        <option value="SHORT_TERM">Short Term Goals</option>
+                        <option value="LONG_TERM">Long Term Goals</option>
+                        <option value="SCHOOL">School</option>
+                        <option value="DAILY">Daily</option>
+                        <option value="OTHER">Other</option>
+                    </select>
+                </div>
+            </div>
+            <!--  col-md-6   -->
+        </div>
+        <!--  row   -->
+
+
+        <div class="row">
+            <div class="col-md-6">
+
+                <div class="form-group">
+                    <label for="startDate">Start Date</label>
+                    <input id="textinput" name="textinput" type="date" placeholder="placeholder"
+                        class="form-control input-md" formControlName="startDate">
+                </div>
+            </div>
+            <!--  col-md-6   -->
+
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="endDate">End Date</label>
+                    <input id="textinput" name="textinput" type="date" placeholder="placeholder"
+                        class="form-control input-md" formControlName="endDate">
+                </div>
+
+            </div>
+            <!--  col-md-6   -->
+        </div>
+        <!--  row   -->
+
+        <div class="row">
+                <div class="col-md-6">
+    
+                    <div class="form-group">
+                        <label for="startDate">Start Time</label>
+                        <input id="textinput" name="textinput" type="time" placeholder="placeholder"
+                            class="form-control input-md" formControlName="startTime">
+                    </div>
+                </div>
+                <!--  col-md-6   -->
+    
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="endDate">End Time</label>
+                        <input id="textinput" name="textinput" type="time" placeholder="placeholder"
+                            class="form-control input-md" formControlName="endTime">
+                    </div>
+    
+                </div>
+                <!--  col-md-6   -->
+            </div>
+
+
+        <label for="contact-preference">Start?</label>
+        <div class="radio">
+            <label>
+                <input type="radio" name="taskStatus" id="contact-preference" value=1 checked [(ngModel)]="taskStatus"
+                    formControlName="taskStatus">Yes
+            </label>
+        </div>
+        <div class="radio">
+            <label>
+                <input type="radio" name="taskStatus" id="contact-preference" checked [(ngModel)]="taskStatus"
+                    formControlName="taskStatus" value=0 checked>No
+            </label>
+        </div>
+
+        <div class="radio">
+                <label>
+                    <input type="radio" name="taskStatus" id="contact-preference" checked [(ngModel)]="taskStatus"
+                        formControlName="taskStatus" value=2 checked>Paid
+                </label>
+            </div>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+
+
+    </form>
+
+    <br>
+    <div class="alert alert-success" role="alert" *ngIf="isAdded">
+       Task has been successfully added
+    </div>
+</div>

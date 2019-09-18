@@ -1,0 +1,135 @@
+<br />
+
+<div class="container" style="padding-top: 5%">
+    <form [formGroup]="taskDetails">
+        <h2>Edit Details</h2>
+        <br>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="first">Task Name</label>
+                    <input type="text" class="form-control" [(ngModel)]="selectedTask.name" formControlName="taskName" placeholder="" id="first" value="{{selectedTask.name}}">
+                </div>
+            </div>
+            <!--  col-md-6   -->
+
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="last">Task Description</label>
+                    <input type="text" class="form-control"  [(ngModel)]="selectedTask.description" formControlName="taskDesciption" placeholder="" id="last" value="{{selectedTask.description}}">
+                </div>
+            </div>
+            <!--  col-md-6   -->
+        </div>
+
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="company">Cost</label>
+                    <input type="number" class="form-control" [(ngModel)]="selectedTask.amount"  formControlName="cost" placeholder="" id="company" value="{{selectedTask.amount}}">
+                </div>
+
+
+            </div>
+            <!--  col-md-6   -->
+
+            <div class="col-md-6">
+
+                <div class="form-group">
+                    <label for="phone">Task Type</label>
+                    <select id="selectbasic" name="selectbasic" class="form-control" [(ngModel)]="taskType" value="{{selectedTask.type}}"
+                        formControlName="taskType">
+                        <option value="MONTHLY_TASKS">Monthly Task</option>
+                        <option value="SHORT_TERM">Short Term Goals</option>
+                        <option value="LONG_TERM">Long Term Goals</option>
+                        <option value="SCHOOL">School</option>
+                        <option value="DAILY">Daily</option>
+                        <option value="OTHER">Other</option>
+                    </select>
+                </div>
+            </div>
+            <!--  col-md-6   -->
+        </div>
+        <!--  row   -->
+
+
+        <div class="row">
+            <div class="col-md-6">
+
+                <div class="form-group">
+                    <label for="startDate">Start Date</label>
+                    <input id="textinput" name="textinput" type="datetime" placeholder="placeholder"
+                        class="form-control input-md" formControlName="startDate" [(ngModel)]="selectedTask.startDate" value="{{selectedTask.startDate | date}}">
+                </div>
+            </div>
+            <!--  col-md-6   -->
+
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="endDate">End Date</label>
+                    <input id="textinput" name="textinput" type="datetime" placeholder="placeholder"
+                        class="form-control input-md" formControlName="endDate" value="{{selectedTask.endDate | date}}" [(ngModel)]="selectedTask.endDate">
+                </div>
+
+            </div>
+            <!--  col-md-6   -->
+        </div>
+        <!--  row   -->
+
+        <div class="row">
+                <div class="col-md-6">
+    
+                    <div class="form-group">
+                        <label for="startDate">Start Time</label>
+                        <input id="textinput" name="textinput" type="time" placeholder="placeholder"
+                            class="form-control input-md" formControlName="startTime" value="{{selectedTask.startTime}}" [(ngModel)]="selectedTask.startTime">
+                    </div>
+                </div>
+                <!--  col-md-6   -->
+    
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="endDate">End Time</label>
+                        <input id="textinput" name="textinput" type="time" placeholder="placeholder"
+                            class="form-control input-md" formControlName="endTime" value="{{selectedTask.endTime}}" [(ngModel)]="selectedTask.endTime">
+                    </div>
+    
+                </div>
+                <!--  col-md-6   -->
+            </div>
+
+
+        <label for="contact-preference">Completed?</label>
+        <div class="radio">
+            <label>
+                <input type="radio" name="taskStatus" id="contact-preference" value=2 checked [(ngModel)]="selectedTask.taskStatus"
+                    formControlName="taskStatus" [(ngModel)]="selectedTask.taskStatus">Yes
+            </label>
+        </div>
+        <div class="radio">
+            <label>
+                <input type="radio" name="taskStatus" id="contact-preference" checked [(ngModel)]="selectedTask.taskStatus"
+                    formControlName="taskStatus" value=1 checked>No
+            </label>
+        </div>
+
+
+
+        <a type="submit" href="#" (click)="updateTask(selectedTask)" class="btn btn-primary">Edit</a>
+
+
+
+
+    </form>
+
+    <br>
+    <a  class="btn btn-danger" href="#" (click)="deleteTask(selectedTask.id)" >Delete Task</a>
+
+    <br>
+    <br>
+
+    <div class="alert alert-success" role="alert" *ngIf="isAdded">
+       Task has been successfully updated
+    </div>
+</div>
