@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy, Injectable, Inject, forwardRef } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { UserService } from '../data/user.service';
 import { DatePipe } from '@angular/common';
 import { NotificationService } from '../data/notification.service';
@@ -23,11 +23,13 @@ export class HomeComponent implements OnInit {
   selectTaskType = '';
   source = interval(10000);
   subscription: Subscription;
-  motivation: any = {};
+  motivation : any = {};
   isLoaded = false;
 
 
-  constructor(@Inject(forwardRef(() => UserService)) public userService: UserService, @Inject(forwardRef(() => NotificationService)) public notificationService: NotificationService) {
+  constructor(private userService: UserService, private notificationService: NotificationService) {
+
+
   }
 
   ngOnInit() {

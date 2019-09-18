@@ -1,4 +1,4 @@
-import { Component, OnInit, Inject, forwardRef } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { NotificationService } from '../data/notification.service';
 
 @Component({
@@ -8,8 +8,8 @@ import { NotificationService } from '../data/notification.service';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor( @Inject(forwardRef(() => NotificationService)) public service: NotificationService) {
-  }  notifications : any = [];
+  constructor(private service : NotificationService) { }
+  notifications : any = [];
 
   ngOnInit() {
       this.service.getAllNotifications().subscribe(data => {

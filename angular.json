@@ -24,7 +24,7 @@
               "src/assets"
             ],
             "styles": [
-            
+              "node_modules/bootstrap/dist/css/bootstrap.min.css"
             ],
             "scripts": []
           },
@@ -86,10 +86,7 @@
             "styles": [
               "src/styles.css"
             ],
-            "scripts": [
-              "src/js/jquery-3.4.1.js",
-              "src/js/bootstrap.min.js"
-            ]
+            "scripts": []
           }
         },
         "lint": {
@@ -118,6 +115,7 @@
           }
         }
       }
-    }},
+    }
+  },
   "defaultProject": "ballife-style-app"
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit, forwardRef, Inject } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 import { UserService } from '../data/user.service';
 import { DatePipe } from '@angular/common';
@@ -11,15 +11,15 @@ import { DatePipe } from '@angular/common';
 })
 export class EditTaskComponent implements OnInit {
 
-  
+
   taskDetails: FormGroup;
   taskType = '';
   taskStatus = '';
   isAdded = false;
-  selectedTask : any = {};
+  selectedTask: any = {};
 
-  constructor(private formBuilder, @Inject(forwardRef(() => UserService)) public taskService: UserService, @Inject(forwardRef(() => DatePipe)) public datePipe: DatePipe) {
-  }
+  constructor(private formBuilder: FormBuilder, private taskService: UserService, private datePipe: DatePipe) { }
+
   ngOnInit() {
 
     let task = localStorage.getItem('selectedTask');
@@ -33,9 +33,9 @@ export class EditTaskComponent implements OnInit {
       taskType: new FormControl('', Validators.required),
       startDate: new FormControl('', Validators.required),
       endDate: new FormControl('', Validators.required),
-      taskStatus :new FormControl('', Validators.required),
+      taskStatus: new FormControl('', Validators.required),
       startTime: new FormControl('', Validators.required),
-      endTime :new FormControl('', Validators.required)
+      endTime: new FormControl('', Validators.required)
     });
   }
 
@@ -52,20 +52,20 @@ export class EditTaskComponent implements OnInit {
       'taskStatus': this.taskStatus,
       'amount': this.taskDetails.value.cost,
       'type': this.taskType,
-      'timeCreated' : new Date(),
+      'timeCreated': new Date(),
       'startTime': this.taskDetails.value.startTime,
       'endTime': this.taskDetails.value.endTime
-      
+
     }
 
     this.taskService.saveTask(task).subscribe(data => {
       console.log(this.selectedTask);
     });
-    
+
 
   }
 
-  
+
 
   deleteTask(id) {
     this.taskService.deleteTask(id).subscribe(data => {
@@ -73,11 +73,11 @@ export class EditTaskComponent implements OnInit {
     });
   }
 
-  updateTask(task){
+  updateTask(task) {
     this.taskService.saveTask(task).subscribe(data => {
       console.log(this.selectedTask);
     });
-    
+
   }
 
 }

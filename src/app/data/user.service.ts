@@ -21,8 +21,6 @@ export class UserService {
     return data;
   }
 
-  
-
   getDashboardInfo() {
     return this.httpClient.get<any>(this.baseURL + '/dashboard');
   }

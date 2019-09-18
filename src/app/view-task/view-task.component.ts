@@ -1,4 +1,4 @@
-import { Component, OnInit, Inject, forwardRef } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { UserService } from '../data/user.service';
 
 @Component({
@@ -8,8 +8,8 @@ import { UserService } from '../data/user.service';
 })
 export class ViewTaskComponent implements OnInit {
 
-  constructor( @Inject(forwardRef(() => UserService)) public service   : UserService) {
-  }  taskType = '';
+  constructor(private service: UserService) { }
+  taskType = '';
   selectedTasks: any = [];
   tasks: any = [];
   selectedTask: any = {};

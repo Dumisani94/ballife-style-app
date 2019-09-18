@@ -13,8 +13,7 @@ import { DailyTaskComponent } from './daily-task/daily-task.component';
 import { ViewTaskComponent } from './view-task/view-task.component';
 import { FinanceComponent } from './finance/finance.component';
 import { EditTaskComponent } from './edit-task/edit-task.component';
-import { UserService } from './data/user.service';
-import { NotificationService } from './data/notification.service';
+import { NotificationsComponent } from './notifications/notifications.component';
 
 
 @NgModule({
@@ -26,7 +25,8 @@ import { NotificationService } from './data/notification.service';
     DailyTaskComponent,
     ViewTaskComponent,
     FinanceComponent,
-    EditTaskComponent
+    EditTaskComponent,
+    NotificationsComponent
   ],
   imports: [
     BrowserModule,
@@ -34,7 +34,7 @@ import { NotificationService } from './data/notification.service';
     HttpClientModule ,
     ReactiveFormsModule
    ],
-  providers: [DatePipe, UserService,NotificationService],
+  providers: [DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

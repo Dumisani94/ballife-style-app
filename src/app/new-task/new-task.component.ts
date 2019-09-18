@@ -1,4 +1,4 @@
-import { Component, OnInit, Inject, forwardRef } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 import { UserService } from '../data/user.service';
 import { DatePipe } from '@angular/common';
@@ -15,8 +15,8 @@ export class NewTaskComponent implements OnInit {
   taskStatus = '';
   isAdded = false;
 
-  constructor(private formBuilder, @Inject(forwardRef(() => UserService)) public taskService: UserService, @Inject(forwardRef(() => DatePipe)) public datePipe: DatePipe) {
-  }
+  constructor(private formBuilder: FormBuilder, private taskService : UserService, private datePipe: DatePipe) { }
+
   ngOnInit() {
     this.taskDetails = this.formBuilder.group({
       taskName: new FormControl('', Validators.required),
