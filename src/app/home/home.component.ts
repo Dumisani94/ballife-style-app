@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, Injectable } from '@angular/core';
 import { UserService } from '../data/user.service';
 import { DatePipe } from '@angular/common';
 import { NotificationService } from '../data/notification.service';
@@ -28,8 +28,6 @@ export class HomeComponent implements OnInit {
 
 
   constructor(private userService: UserService, private notificationService: NotificationService) {
-
-
   }
 
   ngOnInit() {
