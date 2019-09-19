@@ -15,8 +15,9 @@ export class NewTaskComponent implements OnInit {
   taskStatus = '';
   isAdded = false;
 
-  constructor(private formBuilder, @Inject(forwardRef(() => UserService)) public taskService: UserService, @Inject(forwardRef(() => DatePipe)) public datePipe: DatePipe) {
+  constructor(@Inject(forwardRef(() => UserService)) public formBuilder : FormBuilder, @Inject(forwardRef(() => UserService)) public taskService: UserService, @Inject(forwardRef(() => DatePipe)) public datePipe: DatePipe) {
   }
+  
   ngOnInit() {
     this.taskDetails = this.formBuilder.group({
       taskName: new FormControl('', Validators.required),

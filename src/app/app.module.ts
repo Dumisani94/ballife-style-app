@@ -14,6 +14,8 @@ import { ViewTaskComponent } from './view-task/view-task.component';
 import { FinanceComponent } from './finance/finance.component';
 import { EditTaskComponent } from './edit-task/edit-task.component';
 import { NotificationsComponent } from './notifications/notifications.component';
+import { UserService } from './data/user.service';
+import { NotificationService } from './data/notification.service';
 
 
 @NgModule({
@@ -34,7 +36,7 @@ import { NotificationsComponent } from './notifications/notifications.component'
     HttpClientModule ,
     ReactiveFormsModule
    ],
-  providers: [DatePipe],
+  providers: [DatePipe, UserService, NotificationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
