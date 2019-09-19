@@ -17,6 +17,7 @@ export class EditTaskComponent implements OnInit {
   taskStatus = '';
   isAdded = false;
   selectedTask: any = {};
+  message = '';
 
   constructor(@Inject(forwardRef(() => FormBuilder)) public formBuilder, @Inject(forwardRef(() => UserService)) public taskService: UserService, @Inject(forwardRef(() => DatePipe)) public datePipe: DatePipe) {
   }
@@ -70,7 +71,9 @@ export class EditTaskComponent implements OnInit {
   deleteTask(id) {
     this.taskService.deleteTask(id).subscribe(data => {
       console.log(data);
+      this.isAdded = true;
       console.log('delete task');
+      this.message = 'Task has been successfully deleted'
     });
   }
 
@@ -78,6 +81,8 @@ export class EditTaskComponent implements OnInit {
     this.taskService.saveTask(task).subscribe(data => {
       console.log(data);
       console.log(this.selectedTask);
+      this.message = 'Task has been successfully added'
+
     });
 
   }
