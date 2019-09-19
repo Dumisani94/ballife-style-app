@@ -1,6 +1,6 @@
 <br />
 
-<div class="container" style="padding-top: 5%">
+<div class="container" style="padding-top: 5%;color: white;">
     <form [formGroup]="taskDetails">
         <h2>Edit Details</h2>
         <br>
@@ -116,7 +116,7 @@
 
 
 
-        <a type="submit" href="#" (click)="updateTask(selectedTask)" class="btn btn-primary">Edit</a>
+        <a type="submit" (click)="updateTask(selectedTask)" class="btn btn-primary">Edit</a>
 
 
 
@@ -124,7 +124,7 @@
     </form>
 
     <br>
-    <a  class="btn btn-danger" href="#" (click)="deleteTask(selectedTask.id)" >Delete Task</a>
+    <a  type="submit" class="btn btn-danger" (click)="deleteTask(selectedTask.id)" >Delete Task</a>
 
     <br>
     <br>

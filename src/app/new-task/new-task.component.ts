@@ -15,11 +15,11 @@ export class NewTaskComponent implements OnInit {
   taskStatus = '';
   isAdded = false;
 
-  constructor(@Inject(forwardRef(() => UserService)) public formBuilder : FormBuilder, @Inject(forwardRef(() => UserService)) public taskService: UserService, @Inject(forwardRef(() => DatePipe)) public datePipe: DatePipe) {
+  constructor(@Inject(forwardRef(() => UserService)) public taskService: UserService, @Inject(forwardRef(() => DatePipe)) public datePipe: DatePipe) {
   }
   
   ngOnInit() {
-    this.taskDetails = this.formBuilder.group({
+    this.taskDetails = new FormGroup({
       taskName: new FormControl('', Validators.required),
       taskDesciption: new FormControl('', Validators.required),
       cost: new FormControl('', Validators.required),
@@ -52,6 +52,9 @@ export class NewTaskComponent implements OnInit {
     }
 
     this.taskService.saveTask(task).subscribe(data => {
+
+      console.log('Adding new task');
+      console.log(data);
       this.isAdded = true;
     });
 

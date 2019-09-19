@@ -17,3 +17,7 @@ h2 {
     padding-top: 140px;
     font-size: 14px;
   }
+
+  body,tr,th,td,table,a{
+    color: white;
+}
