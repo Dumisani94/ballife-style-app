@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Inject, forwardRef } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 @Injectable({
@@ -10,8 +10,8 @@ export class NotificationService {
   private baseURL = 'https://better-life-backend.herokuapp.com/api';
 
 
-  constructor(private httpClient: HttpClient) { }
-
+  constructor(@Inject(forwardRef(() => HttpClient)) public httpClient : HttpClient) {
+  }
   getAllNotifications() {
     return this.httpClient.get<any>(this.baseURL + '/notifications');
   }

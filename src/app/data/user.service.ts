@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, forwardRef, Inject } from '@angular/core';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 
 @Injectable({
@@ -11,8 +11,8 @@ export class UserService {
   private baseURL = 'https://better-life-backend.herokuapp.com/api';
 
 
-  constructor(private httpClient: HttpClient) { }
-
+  constructor(@Inject(forwardRef(() => HttpClient)) public httpClient : HttpClient) {
+  }
   getTasks() {
     let data: any;
     this.httpClient.get(this.baseURL + '/tasks').subscribe((res) => {
