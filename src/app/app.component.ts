@@ -8,14 +8,6 @@ import { DatePipe } from '@angular/common';
 })
 export class AppComponent  implements OnInit{
 
-  private currentDate = new Date();
-  private formatedDate;
-
-
-  constructor(private datePipe: DatePipe) {
-
-  }
-
   ngOnInit() {
 
   }
