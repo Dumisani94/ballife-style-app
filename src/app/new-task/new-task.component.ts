@@ -47,7 +47,8 @@ export class NewTaskComponent implements OnInit {
       'type': this.taskType,
       'timeCreated' : new Date(),
       'startTime': this.taskDetails.value.startTime,
-      'endTime': this.taskDetails.value.endTime
+      'endTime': this.taskDetails.value.endTime,
+      'isExpired': 0
       
     }
 

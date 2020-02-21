@@ -8,7 +8,10 @@ export class UserService {
 
   // private baseURL = 'https://social-auth-api-v1.herokuapp.com/auth';
   // private baseURL = 'http://localhost:8085/auth';
-  private baseURL = 'https://better-life-backend.herokuapp.com/api';
+  //private baseURL = 'https://better-life-backend.herokuapp.com/api';
+  private baseURL = 'http://localhost:8085/better_life/api/v1';
+
+  
 
 
   constructor(@Inject(forwardRef(() => HttpClient)) public httpClient : HttpClient) {
@@ -26,7 +29,7 @@ export class UserService {
   }
 
   getTaskByTaskType(taskType) {
-    return this.httpClient.get<any>(this.baseURL + '/dashboard/find/' + taskType);
+    return this.httpClient.get<any>(this.baseURL + '/dashboard/' + taskType);
   }
 
 

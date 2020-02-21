@@ -1,1 +1,34 @@
-<p>notifications works!</p>
+<div class="container" style="padding-top: 3%">
+    <div class="row">
+        <div class="col-xs-12">
+            <h4 style="color: white;text-align: center;">NOTIFICATION</h4>
+            <br>
+            <div class="table-responsive">
+                <table
+                    summary="This table shows how to create responsive tables using Bootstrap's default functionality"
+                    class="table table-bordered table-hover" style="background-color: gray;">
+
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Description</th>
+                            <th>Date Added</th>
+                            <th>Action</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let notification of notifications">
+                            <td>{{notification.name}}</td>
+                            <td>{{notification.description}}</td>
+                            <td>{{notification.createDate}}</td>
+                            <td> <a href="">Delete</a></td>
+                        </tr>
+                    </tbody>
+
+                </table>
+            </div>
+            <!--end of .table-responsive-->
+        </div>
+    </div>
+</div>

@@ -1,13 +1,11 @@
 <br />
-<div class="loader" *ngIf="isLoaded === false">...</div>
-<div id="load">Conectando..</div>
 <div class="container" style="padding-top: 3%;color: white">
 
   <div *ngIf="isLoaded === true">
     <div class="wrap">
       <div class="container-fluid">
         <div class="side-body">
-          <h4><span style="color: red;">Balance: R {{info.balance}}</span></h4>
+          <h4><span style="color: white;background-color: red">Balance: R {{info.balance}}</span></h4>
           <div class="row">
             <div class="col-lg-8 col-sm-12">
               <div class="row">

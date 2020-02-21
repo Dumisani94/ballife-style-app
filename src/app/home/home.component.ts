@@ -73,6 +73,8 @@ export class HomeComponent implements OnInit {
 
       localStorage.setItem('taskType', selectTaskType);
       localStorage.setItem('selectedTasks', JSON.stringify(data));
+
+      console.log(data);
     });
 
   }
