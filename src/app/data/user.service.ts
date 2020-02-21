@@ -8,8 +8,8 @@ export class UserService {
 
   // private baseURL = 'https://social-auth-api-v1.herokuapp.com/auth';
   // private baseURL = 'http://localhost:8085/auth';
-  // private baseURL = 'https://better-life-backend.herokuapp.com/better_life/api/v1';
-  private baseURL = 'http://localhost:8085/api';
+  private baseURL = 'https://better-life-backend.herokuapp.com/api';
+  // private baseURL = 'http://localhost:8085/api';
 
   
 
