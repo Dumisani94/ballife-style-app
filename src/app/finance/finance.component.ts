@@ -29,7 +29,8 @@ export class FinanceComponent implements OnInit {
     let budget = {
       'budget': this.budgetDetails.value.budget,
       'startDate': this.datePipe.transform(this.budgetDetails.value.startDate, 'yyyy-MM-dd'),
-      'endDate': this.datePipe.transform(this.budgetDetails.value.endDate,'yyyy-MM-dd')
+      'endDate': this.datePipe.transform(this.budgetDetails.value.endDate,'yyyy-MM-dd'),
+      'overSpent':0
       
     }
 
