@@ -8,15 +8,20 @@ import { NotificationService } from '../data/notification.service';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor( @Inject(forwardRef(() => NotificationService)) public service: NotificationService) {
-  }  notifications : any = [];
+  balance = '0';
+
+
+  constructor(@Inject(forwardRef(() => NotificationService)) public service: NotificationService) {
+  } notifications: any = [];
 
   ngOnInit() {
-      this.service.getAllNotifications().subscribe(data => {
-        this.notifications = data;
-        console.log(this.notifications)
-      });
-    
+    this.service.getAllNotifications().subscribe(data => {
+      this.notifications = data;
+      console.log(this.notifications)
+    });
+
+    this.balance = localStorage.getItem('balance');
+
   }
 
 

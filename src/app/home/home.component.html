@@ -1,11 +1,23 @@
 <br />
-<div class="container" style="padding-top: 3%;color: white">
+<div class="container" style="padding-top: 3%;color: white;font-family:courier,arial,helvetica;">
+
 
   <div *ngIf="isLoaded === true">
+
+
     <div class="wrap">
       <div class="container-fluid">
         <div class="side-body">
-          <h4><span style="color: white;background-color: red">Balance: R {{info.balance}}</span></h4>
+          <div>
+            <label for="favcity" >
+              <select id="favcity" name="select" (click)="selectedMonth($event)">
+                  <option *ngFor="let month of months" [ngValue]="month">{{month.name}}</option>
+              </select>
+            </label>
+          </div>
+
+          <br>
+
           <div class="row">
             <div class="col-lg-8 col-sm-12">
               <div class="row">

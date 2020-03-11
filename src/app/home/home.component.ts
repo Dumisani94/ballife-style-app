@@ -11,6 +11,22 @@ import { interval, Subscription } from 'rxjs';
 })
 export class HomeComponent implements OnInit {
 
+  months = [
+    { id: 1, name: 'January' },
+    { id: 2, name: 'February' },
+    { id: 3, name: 'March' },
+    { id: 4, name: 'April' },
+    { id: 5, name: 'May' },
+    { id: 6, name: 'June' },
+    { id: 7, name: 'July' },
+    { id: 8, name: 'August' },
+    { id: 9, name: 'Septmber' },
+    { id: 10, name: 'October' },
+    { id: 11, name: 'November' },
+    { id: 12, name: 'December' },
+  ];
+
+
   tasks = [];
   info: any = {};
   isOverSpent = false;
@@ -23,7 +39,7 @@ export class HomeComponent implements OnInit {
   selectTaskType = '';
   source = interval(10000);
   subscription: Subscription;
-  motivation : any = {};
+  motivation: any = {};
   isLoaded = false;
 
 
@@ -33,8 +49,6 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
     localStorage.clear;
-
-
     this.tasks = this.userService.getTasks();
     this.userService.getDashboardInfo().subscribe(data => {
       this.info = data;
@@ -43,9 +57,8 @@ export class HomeComponent implements OnInit {
         this.isOverSpent = true;
       }
 
-      console.log(data);
       this.isLoaded = true;
-
+      localStorage.setItem('balance', this.info.balance);
     });
 
     this.userService.getCompletedTasks().subscribe(data => {
@@ -97,6 +110,43 @@ export class HomeComponent implements OnInit {
       this.motivation = data;
       console.log(this.motivation)
     });
+  }
+
+  selectedMonth(event: any) {
+    console.log('Get Selected Month.');
+    console.log(event.target.value);
+
+    localStorage.clear;
+    this.tasks = this.userService.getTasks();
+    this.userService.getDashboardInfo().subscribe(data => {
+      this.info = data;
+
+      if (this.info.overSpent > 0) {
+        this.isOverSpent = true;
+      }
+
+      this.isLoaded = true;
+      localStorage.setItem('balance', this.info.balance);
+    });
+
+    this.userService.getCompletedTasks().subscribe(data => {
+      this.completedTasks = data;
+      console.log(this.completedTasks);
+
+    });
+
+    this.userService.getUpcomingTasks().subscribe(data => {
+      this.upComingTasks = data;
+    });
+
+    this.notificationService.getAllNotifications().subscribe(data => {
+      this.notifications = data;
+    });
+
+    this.getMonthlyBudget();
+
+    this.getDailyMotivation();
+
   }
 
 }

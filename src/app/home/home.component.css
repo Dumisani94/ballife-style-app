@@ -183,3 +183,67 @@ body {
   margin-top: 80px;
   margin-left: -65px;
 }
+
+body {
+  padding: 20px;
+  color: #373737;
+  font-size: 62.5%;
+  line-height: 2.0em;
+}
+
+*, *:before, *:after {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border-radius: 0;
+}
+
+label[for=favcity] {
+  position: relative;
+  display: block;
+  width: 350px;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+label[for=favcity]::after {
+  content: ' ';
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 40px;
+  height: 100%;
+  display: block;
+  pointer-events: none;
+}
+
+label[for=favcity] select {
+  border: 1px  #eeeeee;
+  background: darkblue;
+  padding: 7px 20px 7px 20px;
+  width: 100%;
+  font-size: 13px;
+  font-family: monospace;
+  cursor: pointer;
+}
+
+label[for=favcity] select::-ms-expand {
+    display: none;
+}
+
+label[for=favcity] :-moz-any(select) {
+  width: 110%;
+}
+
+label[for=favcity].ie9 select {
+  width: 110%;
+}
+
+label[for=favcity] select:focus {
+  outline: 1px dotted #A9A9A9;
+}
